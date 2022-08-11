@@ -1,0 +1,22 @@
+1. kubectl --help
+2. kubectl get namespaces
+3. kubectl get pods
+4. kubcetl get pods -n default
+4. kubcetl get pods -n kube-public
+5. kubectl get deployments
+6. kubectl get services
+7. kubectl create namespace workshop-1
+8. kubectl apply -f deployment-example.yaml -n workshop-1
+9. kubectl apply -f service-example.yaml -n workshop-1
+10. kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+11. kubectl apply -f ingress-example.yaml -n workshop-1
+11. docker login
+12. docker build . -t <USERNAME>/subscription-manager-backend
+13. docker build . -t <USERNAME>/subscription-manager-ui
+14. kubectl create namespace subscription-manager
+15. kubectl apply -f secrets.yaml
+16. kubectl apply -f deployment-backend.yaml
+17. kubectl apply -f service-backend.yaml
+18. kubectl apply -f deployment-ui.yaml
+19. kubectl apply -f service-ui.yaml
+20. kubectl apply -f ingress.yaml

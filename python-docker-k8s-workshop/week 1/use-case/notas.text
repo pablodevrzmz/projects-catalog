@@ -1,0 +1,39 @@
+Server
+
+1. Instalar virtual environment python
+
+En linux: sudo pip3 install virtualenv 
+En windows: pip install virtualenv 
+
+2. Crear virtual environment
+virtualenv env
+
+3. Activar virtual environment:
+Linux: source env/bin/activate
+Windows: env\Scripts\activate.bat
+
+4. Desactivar virtual environment
+Linux y windows: deactivate
+
+5. instalar depencias
+pip3 install -r requirements.txt
+
+UI
+
+1. Instalar node js
+https://nodejs.org/es/download/
+
+2. Instalar angular cli
+https://angular.io/cli
+npm install -g @angular/cli
+
+3. Construir: npm run build
+
+4. Levantar: ng serve
+
+Base de datos:
+
+MONGO_USER=admin
+MONGO_PASS=admin
+MONGO_DB=workshop
+MONGO_SERVER=workshop-cluster.ajivk.mongodb.net

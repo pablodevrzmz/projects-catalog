@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-web-app-service
+  labels:
+    app: simple-web-app
+  namespace: workshop-1
+spec:
+  selector:
+    app: simple-web-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: ClusterIP
+  #type: LoadBalancer

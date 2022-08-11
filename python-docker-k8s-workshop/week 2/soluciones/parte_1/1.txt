@@ -1,0 +1,4 @@
+docker pull hello-world
+docker run --name hola_mundo hello-world
+docker rm hola_mundo
+docker rmi hello-world

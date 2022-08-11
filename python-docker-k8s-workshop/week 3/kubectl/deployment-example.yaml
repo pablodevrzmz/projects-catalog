@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-web-app-deployment
+  labels:
+    app: simple-web-app
+  namespace: workshop-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simple-web-app
+  template:
+    metadata:
+      labels:
+        app: simple-web-app
+    spec:
+      containers:
+      - name: simple-web-app-container
+        image: kodekloud/webapp
+        ports:
+        - containerPort: 5000

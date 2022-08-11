@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+    ui:
+       #image: my-image
+       build: ./ui/subscription-admin
+       ports:
+           - "80:80"
+       links:
+           - server
+       depends_on:
+            - server
+       healthcheck:
+            test: ["CMD", "curl", "http://localhost:80/"]
+            interval: 20s
+            timeout: 20s
+            retries: 5
+    server:
+      build: ./server
+      ports:
+      - "8005:8005"
+      healthcheck:
+        test: ["CMD", "curl", "http://localhost:8005/health/"]
+        interval: 20s
+        timeout: 20s
+        retries: 5
+      environment:
+        - MONGO_USER=abc
+        - MONGO_PASS=abc
+        - MONGO_DB=abc
+        - MONGO_SERVER=abc     
+
+# docker compose build 
+# docker-compose up -d

@@ -1,0 +1,40 @@
+version: '3.1'
+
+services:
+
+  my-mongo-db:
+    build: ./mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+    # agreamos el volumen de la manera directorioExterno:directorioInternoContenedor
+    volumes:
+      - /Users/jpmacprom1/mongo_volumen_1:/data/db
+
+  my-mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@my-mongo-db:27017/
+    
+    #No olviden enlazar los servicios
+    links:
+    - my-mongo-db 
+
+    # dependencia para levantar de segundo este servicio
+    depends_on:
+      - my-mongo-db
+
+
+# Comandos para probar
+# docker-compose build
+# docker-compose up -d
+# Verifique que el volumen tiene datos
+# Luego vaya a 127.0.0.1:8081 en su navegador
+# docker-compose down

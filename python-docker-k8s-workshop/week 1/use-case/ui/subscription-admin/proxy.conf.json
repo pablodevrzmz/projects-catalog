@@ -1,0 +1,6 @@
+{
+    "/subscriptions": {
+        "target": "http://subscription-manager-backend-service:8005",
+        "secure": false
+    }
+}

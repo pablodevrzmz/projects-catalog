@@ -1,0 +1,41 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: subscription-manager-ui-deployment
+  namespace: subscription-manager
+spec:
+
+  # 1. Cuantas copias queremos del pod?
+  replicas: 1
+
+  # 2. Como actualizar el pod?
+  strategy: 
+    type: Recreate
+
+  # 3. Cuales pods son manejados en este deployment?
+  selector:
+    # Estos labels debe hacer match on los del pod
+    matchLabels:
+      app: subscription-manager-ui
+  
+  # Configuracion del pod
+  template:
+    metadata:
+      # Labels selectores para el pod en este deploymen
+      labels:
+        app: subscription-manager-ui
+    spec:
+      containers:
+        # nombre del contenedor y de la imagen
+        - name: subscription-manager-ui
+          image: pablorzmz/subscription-manager-ui
+          ports:
+          # exponer puestos
+          - containerPort: 80
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 250m
+            limits:
+              memory: "512Mi"  
+              cpu: 500m      

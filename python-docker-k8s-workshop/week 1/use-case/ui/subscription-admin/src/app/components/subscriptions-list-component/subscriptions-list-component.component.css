@@ -1,0 +1,21 @@
+.main-list{
+    margin: 10%;
+    background-color: #F3F6F6;
+    color: black;
+}
+
+h1{
+    color: #18020C;
+}
+
+
+table {
+    width: 100%;
+    background-color: #9590A8 !important;
+}
+
+button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #634B66 !important;
+}
